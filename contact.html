@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我 - Simba</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Simba</div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="portfolio.html">作品集</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html" class="active">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-page">
+            <h1>联系我</h1>
+            <div class="contact-content">
+                <p>如果您对我的作品感兴趣或有合作意向，请随时通过以下方式联系我：</p>
+                <ul>
+                    <li>邮箱: <a href="mailto:Max1625842302@Gmail.com">Max1625842302@Gmail.com</a></li>
+                    <li>B站: <a href="https://space.bilibili.com/494000607?spm_id_from=333.1007.0.0">Simba的B站</a></li>
+                    <li>微信: <a href="#">simba0828</a></li>
+                </ul>
+
+                <div class="donation-section">
+                    <p>如果我的作品对您有所帮助，欢迎打赏支持：</p>
+                    <div class="donation-buttons">
+                        <button class="button donation-button" onclick="showQR('wechat.jpg')">微信打赏</button>
+                        <button class="button donation-button" onclick="showQR('alipay.jpg')">支付宝打赏</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Simba. 版权所有.</p>
+    </footer>
+
+    <div class="modal" id="qrModal">
+        <div class="modal-content">
+            <span class="close-button" id="closeWechat">×</span>
+            <img id="modalImage" src="" alt="QR Code">
+        </div>
+    </div>
+
+    <script>
+        function showQR(imageSrc) {
+            const modal = document.getElementById('qrModal');
+            const modalImage = document.getElementById('modalImage');
+            if (modal && modalImage) {
+                modalImage.src = imageSrc;
+                modal.classList.add('active');
+            } else {
+                console.error('Modal or modalImage not found!');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('qrModal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        document.getElementById('closeWechat').addEventListener('click', closeModal);
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('qrModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <script src="interactions.js"></script>
+</body>
+</html>

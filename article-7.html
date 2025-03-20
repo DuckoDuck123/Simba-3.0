@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老子与庄子 - Simba</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Simba</div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="portfolio.html" class="active">作品集</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-detail">
+            <h1>老子与庄子</h1>
+            <p>在整个中国历史乃至现代，老子与庄子的名字几乎总是并列出现。这是因为他们同为道家的代表人物，其思想一脉相承。</p>
+
+            <p>然而，如果庄子只是简单地继承了老子的思想，而没有任何发展、变化或差异，又何以让二人并列而论呢？因此，这种并列不仅说明了他们的相似之处，也暗示着二人的思想在演变过程中仍然存在差异。</p>
+
+            <p>最主要的差异体现在哪些方面呢？</p>
+
+            <p>通过阅读原典，我们首先能直观感受到的区别，是二者在语言风格上的不同。老子以极为玄妙的语言和类比方式来阐述道，这是因为他高度关注“道不可言说”这一特性。庄子显然也认同这一点，但他的表达方式却有所不同。他更倾向于通过寓言故事、对话引述、跳跃式思维以及隐藏在故事中的哲理来传达思想。</p>
+
+            <p>这种差异当然部分源于个人语言风格的不同，但仅仅是这样吗？我认为并非如此。这还与他们各自面向的受众有关。老子所关注的主要对象仍然是国君，也就是说，《道德经》是一部承载政治关怀的著作。他的核心目的是通过富有逻辑性的玄妙论证，说服国君接受其治国之道，因此老子的言说方式整体上更加系统化。</p>
+
+            <p>庄子则不同。他的语言充满想象力与感染力，这正是为什么后世的许多文人，如李白等，都深受其影响。这种风格更适合他所面对的对象——个体的顿悟者。庄子的思想并非为了规训统治者，而是引导个体如何超脱世俗，达到精神上的自由。</p>
+
+            <p>除了传播对象的不同，老子与庄子还有哪些思想上的差异？</p>
+
+            <p>要探寻二者的区别，我们可以先从他们的共同点入手，看看这一共同点在何处分化出不同的方向。二者的思想起点显然是一致的：他们对“自然大道”的领悟相同，都认为“道”是支配自然、不可言说且具有无限性的，是“无生之生”的根本法则。</p>
+
+            <p>然而，在对相同的“道”的理解与实践上，老子与庄子却走向了不同的路径。老子推崇的是君王如何顺应天道、实行无为，以达到柔弱胜刚强的治国境界；而庄子则关注个体如何从“小知”走向“大知”，如何不受经验的束缚，最终进入“无我、无功、无名”的境界，实现“万物齐一”、物我合一的超然状态。</p>
+
+            <p>如果说，老子的核心思想强调的是人如何恰当地感应并顺应天道，那么庄子则更进一步，强调人如何彻底超越自我的界限，融入宇宙万物之中。在庄子的视角下，实现这一点的前提，是放下已有经验，舍弃贪欲与外界的物质追求，最终与道合一，成为真正的“逍遥游”者。</p>
+
+            <p>从这个角度来看，庄子将老子的理论推向了更极端、更加彻底的境地。</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Simba. 版权所有.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // 汉堡菜单逻辑
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 导航高亮
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

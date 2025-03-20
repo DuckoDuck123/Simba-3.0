@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - Simba</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Simba</div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="portfolio.html">作品集</a></li>
+                <li><a href="about.html" class="active">关于我</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-page">
+            <h1>关于我</h1>
+            <div class="about-grid">
+                <div class="about-item simba-item">
+                    <div class="about-image">
+                        <img src="me.jpg" alt="Simba 照片">
+                    </div>
+                    <div class="about-text">
+                        <h2>Simba</h2>
+                        <p>我习惯于在多元的知识领域中探索，既对前沿科技的演进保持敏锐的洞察，也对人文历史的深邃底蕴怀有浓厚的兴趣。理性思辨与艺术审美在我看来是相辅相成的，它们共同塑造着我对世界的理解。我乐于在不断的学习和思考中拓展认知边界，并期待与同样拥有独立思考精神的伙伴们进行深入交流。</p>
+                        <p>邮箱: <a href="mailto:Max1625842302@Gmail.com">Max1625842302@Gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="about-item">
+                    <div class="about-text">
+                        <h3>技能</h3>
+                        <ul>
+                            <li>说学逗唱</li>
+                            <li>论文写作</li>
+                            <li>创意构思</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-item">
+                    <div class="about-text">
+                        <h3>信息</h3>
+                        <p>学校:</p>
+                        <ul>
+                            <li><button class="school-button" onclick="showQR('./zhenyuan.jpg')">开封贞元学校</button></li>
+                            <li><button class="school-button" onclick="showQR('./daohai.jpg')">噵海 River</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-item">
+                    <div class="about-text">
+                        <h3>常用工具</h3>
+                        <ul>
+                            <li><a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint" target="_blank">PPT</a></li>
+                            <li><a href="https://www.pixelmator.com/pro/" target="_blank">Pixelmator Pro</a></li>
+                            <li><a href="https://www.capcut.cn/" target="_blank">剪映</a></li>
+                            <li><a href="https://www.sketch.com/" target="_blank">Sketch</a></li>
+                            <li><a href="https://code.visualstudio.com/" target="_blank">VS Code</a></li>
+                            <li><a href="https://shuttle.gt-all.com/aff.php?aff=7943" target="_blank">Gatern</a></li>
+                            <li><a href="https://firecore.com/infuse" target="_blank">Infuse</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-item">
+                    <div class="about-text">
+                        <h3>网站制作鸣谢</h3>
+                        <ul>
+                            <li><a href="https://grok.com" target="_blank">Grok3</a></li>
+                            <li><a href="https://aistudio.google.com" target="_blank">Gemini 2.0</a></li>
+                            <li><a href="https://chat.openai.com" target="_blank">ChatGPT o3 mini high</a></li>
+                            <li><a href="https://claude.ai" target="_blank">Claude 3.7 Sonnet</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="qrModal">
+                <div class="modal-content">
+                    <span class="close-button" id="closeModal">×</span>
+                    <img id="modalImage" src="" alt="QR Code">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Simba. 版权所有.</p>
+    </footer>
+
+    <script>
+        function showQR(imageSrc) {
+            const modal = document.getElementById('qrModal');
+            const modalImage = document.getElementById('modalImage');
+            if (modal && modalImage) {
+                modalImage.src = imageSrc;
+                modal.classList.add('active');
+            } else {
+                console.error('Modal or modalImage not found!');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('qrModal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        document.getElementById('closeModal').addEventListener('click', closeModal);
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('qrModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <script src="interactions.js"></script>
+</body>
+</html>

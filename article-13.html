@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法家的“势” - Simba</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Simba</div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="portfolio.html" class="active">作品集</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-detail">
+            <h1>法家的“势”</h1>
+            <p>“势”本身是一个非常神奇的词，因为它在法家思想中所描述的概念难以用其他任何词语替代。无论我们如何修饰它、给它组词，都很难精准地传达出这个单字所蕴含的丰富意蕴。</p>
+
+            <p>如果我们将其解读为“势力”，总觉得仅仅是在描述物质力量，未能捕捉到它在很大程度上通过营造君主的神秘感而产生的特质。如果我们称之为“权势”，又似乎过于强调权力本身，而忽略了权力之外的其他因素。</p>
+
+            <p>总之，“势”展现的是君主控制和支配臣子的总体能力，也是君主治理整个朝廷所倚仗的关键属性。</p>
+
+            <p>从这一描述中，我们可以看出，法家对于君主与臣子关系的理解颇有些“黑帮”的味道：最核心的问题是如何确保“老大”能够牢牢掌控人心，支配整个团体的成员，保证无人违抗他的命令。</p>
+
+            <p>那么，如何才能达到这种境界呢？</p>
+
+            <p>通向更高“势”的路径，显然是法家思想早已清晰指明的：法律与权术。然而，有些法律和权术仅仅是在权力层面巩固君主的权威，例如确保他的权力不被其他官员分夺，确保有才能却不逾越权力范围的臣子掌握实权。这些当然至关重要，也是构成国家的主要部分，但显然并非最根本的。因为无论君主如何用权力武装自己，他的下属依然明白，他不过是一个占据优势地位的人罢了。</p>
+
+            <p>尽管达到这样的境界已属不易，但法家显然不会就此满足。为了让君主更稳固地获得权力并在臣子中树立“势”，法家的终极任务是找到某种方法，将君主显著地区别于其他所有人。</p>
+
+            <p>唯一可行的方式，便是增强君主的神秘感，让他的所有想法、目的以及思考过程的端倪完全不为外人所知。无人知晓君主何时会发怒，何时会动用他手中掌握的巨大权力；无人清楚他究竟掌握了哪些信息，也无人明白他是真正掌控全局，还是能力也有其边界。正因这种对未知的恐惧，臣子与君主的地位差距愈发显著，甚至演变为天壤之别。君主逐渐成为一个近乎神的支配者，无人敢于怀疑他、违逆他，或试图揣摩他的意图。</p>
+
+            <p>当然，这只是最理想的状态。实际上，无论法家借助多少手段，也不可能完全阻挡臣子的私心。总会有人试图看透君主的意图和真实面目，甚至妄图操控君主。李斯与秦始皇之间旷日持久的博弈便是如此。</p>
+
+            <p>然而，这种博弈与儒家体制下的君臣博弈截然不同。儒家的君臣关系建立在开放意见的前提之上，也就是说，臣子向君主提出建议不仅是必要的职责，更是受到鼓励的行为。尽管双方之间也存在博弈，但这种博弈是在彼此共同认可的框架内进行的。</p>
+
+            <p>反观法家，君主追求的是一种无人能够反对他的状态，因为他认为任何异议都是祸乱的根源。而臣子则只能通过阴谋诡计，尽力绕过君主以发挥自己的作用，且往往是为了满足私欲，甚至实现僭越。一旦这种斗争开始，便不会以双方达成共识或更好的方案而告终，而必然是一方彻底击败并消灭另一方。</p>
+
+            <p>因此，法家的体系缺乏自我调整的能力。当你将所有权力集中于一个君主之手，并放任他一意孤行时，国家如何能够维持长久的安定呢？</p>
+
+            <p>当然，这种权力集中的局面却是雄才大略的君主最为钟爱的，这也是人之常情。所以，在实行儒家体制的历史中，君主——特别是雄才大略的君主——总是不断尝试掌控整个国家。这时，君臣关系稍有不慎便会演变为完全的控制，国家也因此逐渐丧失自我调整的能力。</p>
+
+            <p>正是这样一种路径，导致了中国历史上治乱循环的不断上演。</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Simba. 版权所有.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // 汉堡菜单逻辑
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 导航高亮
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

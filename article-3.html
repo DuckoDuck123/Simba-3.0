@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道—人 - Simba</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Simba</div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="portfolio.html" class="active">作品集</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-detail">
+            <h1>道—人</h1>
+            <p>这是一个带有疑惑性的题目，“道”指的是什么？“人”指的是什么？这两个字的联合又想要代表什么？</p>
+
+            <p>这里我文章的主旨显然不是我们通常所说的道士，而是在更广阔的角度上言说，儒家和道家分别所领悟到的“道”，与领悟到“道”的这个人，这个主体之间的关联。</p>
+
+            <p>因为我们相对是熟悉儒家义理的，因此我们不妨先看看道家究竟怎么描述他们的“道”，再进行恰当的对比。</p>
+
+            <p>说到这个“大道”，一大特点就是“道可道，非常道”。也就是说，虽然这个“大道”本身是可以言说的，或许在推广的过程中也必须对他人言说，但是一旦言说出来，我们用语言所表达的这个“大道”就不再是其对应的思想了，就不再是在自然中流行运转的那个“大道”了，即语言的描述遮蔽了其本质。</p>
+
+            <p>可是，尽管任何的命名、表达和讨论都会改变“道”本来的形态，但是如果没有所有的命名、表达和讨论，整个天地宇宙就会始终处在混沌的原始状态。只有在有了命名，有了具体的事物与其对应，那个纯粹概念的“大道”才得以具象化，才得以真正形成一个世界。这也就是我们所说的“无名天地之始，有名万物之母”。</p>
+
+            <p>在道家这里，显然“无名”和“有名”之间不是对立的，虽然从概念上看起来是相反的，但是两者的互相作用和共同存在才是理解现在世界的关键。</p>
+
+            <p>我们可以看到老子所惯用的论证方法：通过并列两个看似相反的概念，出乎意料地将两者并置，以求尽量用语言表达那个难以表达的玄之又玄的东西。</p>
+
+            <p>对应着道家所体悟的天道，人应该怎么样行动呢？这就是对比儒家和道家思想的关键，特别是我们今天的题目本身就是天道和实践的主体——人。</p>
+
+            <p>显然，老子提倡的行动方案和儒家是天差地别的。老子会说：我们所处的世界本身有其无比玄妙的内在规律，这种内在规律本身就包含着和谐与最优化的自然真理。如果领会了这样的一种自然真理，那么人就应该能够放下自己日常的那些痴心执念，那些实际上是破坏这种自然真理的行为和想法，而顺应“道”而生存，达到一种自然而然的状态。这样的状态就是一种“不作为”的作为，虽然你看似没有进行什么实际的举动，但是这种方式已经帮你避免了一切乱作为所带来的危机和混乱。在这种状态下，你个人的内心以及周围世界，或者从政治和君王的角度来讲，就是整个国家，都应该处在一种自然而然、和谐而昌盛的状态。</p>
+
+            <p>在这里，我们就可以看出道家的“道”和儒家的“道”的很大区别：尽管这两者都是难以言说的，都是不能用精准的科学一样的定义法来描述的，但是道家的“道”不能描述，是因为其本质在无比玄妙的自然之中，任何具体化的言说都会打破这种状态，而遮蔽其本质。人只有彻底体会了这样的一种“道”，体会了老子所说的真正的自然而然的状态，才能够自然而然地做出与其相匹配的行为，而不能先前就直接与具体化的行为相绑定。可是儒家正好相反，儒家的“仁”恰恰是一个实践概念，恰恰是一个要不断与周围的社会和同类互动而得以阐明的东西，比如说外在表现为的孝悌忠信。因此，“仁”反而是要在实践和具体化的行动中得以澄清的。</p>
+
+            <p>从这一点上做一点延伸，我们也能看出两家“大道”的重心就不同。道家的重心在于自然，人不过是要顺应自然而行动。儒家的重心则在于人，人在体悟了天道之后，要怎么样顺着自己内心的这颗活泼泼的仁心行动。</p>
+
+            <p>时间原因，暂时搁笔。</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Simba. 版权所有.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // 汉堡菜单逻辑
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 导航高亮
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

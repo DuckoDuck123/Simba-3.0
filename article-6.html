@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庄子、惠子与莫名其妙的葫芦 - Simba</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Simba</div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="portfolio.html" class="active">作品集</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-detail">
+            <h1>庄子、惠子与莫名其妙的葫芦</h1>
+            <p>《逍遥游》中记载了这样的一则故事：惠子告诉庄子，自己种出一个巨大的葫芦，但因既不能盛水又因过大而无处安放，最终只得砸碎。庄子听后笑道，惠子不懂得如何善用大物，并举例说宋国有家族世代依靠售卖防龟裂药为生，因有人巧加利用，最终获得封赏。庄子借此劝惠子：既然葫芦如此巨大，为何不考虑将其制成小船，在江湖上漂浮呢？</p>
+
+            <p>这个故事说来颇为奇特：首先，它涉及一个颇具比喻意味、而又不切实际的大葫芦；其次，关于宋国的例子也显得有些荒诞。</p>
+
+            <p>但考虑到这本就属于寓言，我们应以寓言的方式理解，暂且放下逻辑中那些怪异之处，思索庄子欲借此故事表达何意。</p>
+
+            <p>初读时，故事的意味似乎颇为明显：世间无物绝对无用或有用，只有使用者的运用方式赋予事物不同的价值和用途；因此，相同的东西在不同人手中便可展现不同的功能。依此解释，惠子代表那不懂发掘物体潜在应用的人，而庄子则象征善于发现物之妙用者。</p>
+
+            <p>然而，这种理解是否准确？仅从故事本身看似无矛盾，但这思想却难以与庄子整体哲学融会贯通！</p>
+
+            <p>具体来说，庄子为何会强调事物的工具性？从一开始，庄子的学说就聚焦于“小知”与“大知”的区别。无论人们发明多么高明的工具，构建多么严密的政治体系，终究不过是“小知”的表现；而“大知”反而应当是“无知”的境界。</p>
+
+            <p>可是，庄子为何仍提出一种将葫芦作为工具使用的方法？看似是试图寻找更好的利用方式，将葫芦当作工具加以利用而已。</p>
+
+            <p>因此，我们应仔细揣摩庄子和惠子在“应用”上的区别。细思之下，惠子的应用具有明确的生活和实用价值；而庄子所谓的“应用”，真能称之为应用吗？惠子或许根本不需要一艘船，只需一个水瓢；即便惠子真的需要一艘船，也完全可以采用其他方式制造。因而，庄子的应用根本没有对应惠子的实际需求，自然也谈不上实用性。</p>
+
+            <p>那么，庄子的这种应用对应的又是什么呢？</p>
+
+            <p>回到寓言本身，可以说：惠子的应用是依据“我之需求”，而庄子的应用则是依据“物之本性”。也就是说，庄子并未考虑惠子是否需要一艘船，而是基于葫芦本身的结构和巨大的体积，认为其本就适合漂浮于江河之上，因此主张让它顺势漂流。</p>
+
+            <p>不过，这种应用就一定是最遵循葫芦本性的吗？未必如此。如果惠子一开始就想把葫芦做成船，庄子反而可能会驳斥这种造船之法。因为这本是寓言，庄子欲传达的正是：应顺应天地之道，让万物自然而然地各展其性，达到与浩瀚万物融为一体的境界。无论惠子如何提出要求，其视角始终局限于工具性、应用性，仍然陷于“妄为”之误。</p>
+
+            <p>因此，对庄子而言，他主张否定人们基于经验层面对事物的判断与利用，认为这只会异化并损害人的生命，属于“伪”的现象；其追求在于重新回归自然，回归那大道。</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Simba. 版权所有.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // 汉堡菜单逻辑
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 导航高亮
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

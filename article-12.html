@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法家的“术” - Simba</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Simba</div>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="portfolio.html" class="active">作品集</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="contact.html">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="article-detail">
+            <h1>法家的“术”</h1>
+            <p>法家的核心概念是“法”，但除此之外，还有一个同样重要的概念——“术”。法律是一套固定的规则，一旦确立下来，若整个国家因此运行无碍，君主的主动性又该如何体现呢？然而，现实情况往往并非如此。即使有了完善的法律，臣子们仍可能钻法律的漏洞，甚至逐渐控制和审查法律。这时，君主就有必要运用“术”来应对这些挑战。</p>
+
+            <p>因此，“术”也成为了法家思想的核心概念之一。</p>
+
+            <p>然而，这个概念究竟是如何界定的呢？每当我们提及“术”时，往往会联想到历史上的各种阴谋诡计。但并非所有阴谋诡计都符合法家在此所说的“术”的标准，同样，也并非所有的“术”都以阴谋诡计的形式呈现。</p>
+
+            <p>首先，法家的“术”有明确的对象：它是君主用来对付臣子的工具。例如，张三怀疑李四偷了自己家的鸡，因而暗中跟踪李四，这种行为绝不能算作法家的“术”。其次，“术”的目的也十分清晰：巩固君主的权威，确保臣子中无人怀有僭越之心，同时保证真正有才干的人能在合适的位置上做事，剔除那些名不副实之辈。</p>
+
+            <p>由此可见，许多阴谋诡计并非“术”，而许多“术”也不必以阴谋诡计的方式展现。君主往往可以通过光明正大的手段实现这一目的，例如察举制和科举制等文官选拔与考核制度。这些制度的最终目标，不正是为君王挑选合适的人才来治理国家吗？尽管这些制度完全透明公开，但根据法家的定义，它们仍然属于“术”的范畴。</p>
+
+            <p>因此，如果我们稍微拓宽视野，君主为确保自身核心地位以及国家机器高效运转所采取的一切行为，都可以归入“术”的概念。这样一来，这个概念不仅能在法家的框架内讨论，甚至可以延伸至儒家和道家的语境中加以审视。当然，这三家所认同的方法与策略显然差异巨大。</p>
+
+            <p>总体而言，儒家和道家并未特别关注“术”。它们的讨论主要集中于治国的“道”以及对道德与人生价值的思考。然而，一旦涉及具体的治国方法与策略——无论是采用黄老之术的汉初，还是历代以儒家思想为主导的时代——在隐秘之处，总能窥见法家的影子。毕竟，这一套高效的官僚体系正是依靠法家式的“术”支撑起来的。</p>
+
+            <p>这在某种程度上也暴露了儒家和道家的不足：它们更多提供的是方向，是一种可用于分析形势并作出选择的思维方式与理念，却较少关注政治的具体实践。它们的关怀在于探寻人类作为个体所能达至的理想与境界，这无疑极具价值。但反过来，我们也必须反思：一个完善的政治制度，不仅需要对人性怀有无限的期待与热爱，还必须同时保持深刻的警惕，并设定明确的底线。</p>
+
+            <p>即便在现代政治中，“术”依然至关重要。或者说，国家首脑的一切具体操作，某种程度上都可以视为“术”的运用。</p>
+
+            <p>那么，是否可以说，法家早在春秋战国时期就萌生了现代思想，在诸子百家之中独树一帜，提前提出了政治与道统分离的观念呢？</p>
+
+            <p>显然并非如此。因为法家的“术”完全服务于君主，其边界几乎是无限的。尽管法家强调“法”，但“法”的唯一权威仍在于君主。而现代意义上的“术”，永远是在宪法框架下运行。无论多么极端的总统制，只要它仍属于民主宪政体系，国家元首的权力范围就受到严格限制。</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Simba. 版权所有.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // 汉堡菜单逻辑
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 导航高亮
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
