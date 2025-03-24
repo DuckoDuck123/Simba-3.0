@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我们的超越之路 - Simba</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<nav>
+<div class="logo">Simba</div>
+<button class="hamburger" aria-label="Toggle navigation">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<ul class="nav-menu">
+<li><a href="index.html">首页</a></li>
+<li><a href="portfolio.html" class="active">作品集</a></li>
+<li><a href="about.html">关于我</a></li>
+<li><a href="contact.html">联系我</a></li>
+</ul>
+</nav>
+</header>
+<main>
+    <article class="article-detail">
+        <h1>我们的超越之路</h1>
+        <p>大部分哲学思想都有社会的关怀，即使向道家这样从根本上是反社会和反文明的思想，仍然有其理想王国：小国寡民、鸡犬相闻的世界。因为无社会也是一种社会的存在方式。</p>
+
+        <p>到了高中，我们不断接触一些更具有哲学性的思辨，去阅读一些更具有涵养的原典，不断在更多中哲和西哲的课程中寻找自己生命的方向，但是在这种思考中，一个同样重要的问题就是：我们作为一个集体，究竟想要成为什么样子？我们又怎么样能够成为理想中的那个样子？</p>
+
+        <p>我想畅想最后的样子，是大家比较容易达成共识的。毫无疑问，我们汇聚在这里，一定希望形成一个更互相促进的集体。让集体中的每一个人能够在学术上达到通透，在互动中成为一个具有民主精神的个体，和一个生命力澎湃，拥有爱的能力的自由的灵魂。</p>
+
+        <p>正是抱着这样的愿望，我们才开展了班级自治这样的尝试。有很多原因可以支持这一点：他是对大家解决问题能力的一种锻炼， 是对我们每一个人真正民主精神的一种培养，而最重要的，更是对我们每一个人发展与人格的尊重。在理想状态下，班级自治应该完成上面的愿景。</p>
+
+        <p>然而到了现实中，我们出现了许多问题。</p>
+
+        <p>首先，最初的班级自治很快就倾向效率化：一个集体想要尽快地达成秩序，使用明确的奖惩制度一定是最高效的。因此，各种问题的解决方案都开始变成了互相关联的复杂的奖惩，而形成了一种胡萝卜加大棒的模式。</p>
+
+        <p>其次，在这种胡萝卜加大棒的模式下，规则就必须要变得非常严密，没有漏洞和包含所有情况。于是整个班级的规则就不断复杂化，并且在这个过程中琐碎化，最后我们大部分的时间和精力都花在对付琐碎和极其无趣的日常上，这无疑浇灭了许多同学对班级自制的热情。</p>
+
+        <p>显然，虽然上面两个问题，第二个问题才是显现的最清楚的，第一个问题反而表现为高效率。可稍微分析下就能发现：第一个问题才是更为基础和致命的。</p>
+
+        <p>关键就在于，胡萝卜加大棒的模式违反了我们班级自治的初衷，他没有真正的发展每一个人，更没有培养每一个人自主和自由的精神，反而是对人的物化。这样的奖惩机制就是在不断地调动和利用人的本能，并且放大这种趋利避害的天性，是让人回到动物，让文明回归野蛮。第二个问题，实际上不过是第一个问题的必然衍生。</p>
+
+        <p>在经过这样的反思之后，大家决定努力尝试一些新的方法，专注于通过愿景来团结所有人的力量，共同建设一个更好的班级。</p>
+
+        <p>可是很快发现，这样的发展路径看起来一定是好多了的，但是在实际实行上出现了新的困局：我们只能鼓励大家更多参与班级自治，但是实际上并没有保障。最后通常的结果就会变成两种：要不然大家纠结半天都找不到愿意承担的人，整个班级自治陷入极度的低效。要不然本来应该至于自愿原则的参与变成了一种道德大棒的要挟，失去了其初衷。</p>
+
+        <p>此时我们才注意到，制度的保障是不可不有的，只不过首先不能只有制度，其次要设计能够发展人的制度。</p>
+
+        <p>所以大家之后做了一些改革，在鼓励自愿和承担和促进性发展的同时也设置了底线的备用情况。虽然我们的制度还远没有在这个方面达到比较好，但是至少我们有了一种更清晰的发展方向。</p>
+    </article>
+</main>
+
+<footer>
+    <p>© 2023 Simba. 版权所有.</p>
+</footer>
+<script src="script.js"></script>
+<script>
+    // 汉堡菜单逻辑
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // 导航高亮
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            navLinks.forEach(l => l.classList.remove('active'));
+            e.target.classList.add('active');
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>

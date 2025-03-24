@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>如何修仁？ - Simba</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<nav>
+<div class="logo">Simba</div>
+<button class="hamburger" aria-label="Toggle navigation">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<ul class="nav-menu">
+<li><a href="index.html">首页</a></li>
+<li><a href="portfolio.html" class="active">作品集</a></li>
+<li><a href="about.html">关于我</a></li>
+<li><a href="contact.html">联系我</a></li>
+</ul>
+</nav>
+</header>
+<main>
+    <article class="article-detail">
+        <h1>如何修仁？</h1>
+        <p>既然“仁心”本来是一个变幻莫测的概念，甚至本身都到了难以定义的程度，那么我们不难想到，修炼“仁心”的过程当然也没有办法用一句简短的话就表达清楚。相反，在谈论这个事情的时候，我们必须结合具体的方法和情境分析。</p>
+
+        <p>在《论语》中，大部分关于这种修炼的教导也都是以这样的形式出现的，因此在最开始看的时候会感觉到有些琐碎。那么问题就是：它真的是琐碎的吗？</p>
+
+        <p>显然不是。任何儒家的古圣先贤当然不是提前考虑了每一种可能的情况，并且预先在心里准备好了解决方案和相关的符合儒家义理的教诲，来面对弟子的各种提问和别人的刁难。因此，这背后一定有一个一以贯之的东西。</p>
+
+        <p>如果我们能够尝试把握这个东西，我们也就能够解答在不同情况下修炼“仁心”究竟要采用什么方法的问题了。这一个本来好像晦暗不清，而且难以研究的概念就变得清晰了一些。</p>
+
+        <p>那么这个东西到底是什么呢？要讨论这一点，我就必须深入儒家对于人本性的假设。</p>
+
+        <p>我们都知道，儒家的人性论是性本善，即仁心天然地蕴藏在每一个人的内心之中，这是一种自然而然的道德情感，不是通过之后的苦思冥想产生或者从外界获得的。因为每一个人都有这样道德情感的基础，都有抒发这样道德情感的可能，所以每一个人都像是一颗种子。</p>
+
+        <p>而对于现在世界上并没有发展出仁心的人，儒家的自然解释就是他们的私心、私欲和习性习惯遮蔽了仁心。</p>
+
+        <p>所以我们可以想象，儒家所讲的这条修炼之路，其实就是一个如何激发原有的道德情感，并且同时克除那些遮蔽它的私心、私欲和习性习惯的过程。</p>
+
+        <p>从这个方面，我们可以理解很多文段，我接下来各举一个例子。</p>
+
+        <p>首先是激发原有的道德情感：因为这种情感本来是自然而然的，所以在这里儒家提倡的就是一种唤醒，这个过程也应该是自然而然的。那么究竟有什么媒介能够把天地世界的生生不息和创生万物，以及人类灵魂的道德本性最生动地刻画出来呢？我想很难找到比诗的语言更好的媒介了。因此，诗就是激发仁心的极好载体，无论这首诗歌本身是对人的描述，还是对宇宙的描述，因为儒家的宇宙也是生生不息、创生万物的，也是“道”的展现。</p>
+
+        <p>其次是克除自己的私心私欲，这一点就是一个知行合一的功夫了。因为儒家本身是积极进取的入世的哲学，因此这个过程在儒家看来，绝对不是悬空冥想或者依靠纯粹理性能够完全解决的，而是在不断完成仁心自然外推的过程中获得的不断精进。</p>
+
+        <p>但是这是否代表这个过程中没有反思的成分呢？当然不是，只不过反思和所有的纯粹理性活动都是在过程中一同进行的，而不是独立的。</p>
+
+    </article>
+</main>
+
+<footer>
+    <p>© 2023 Simba. 版权所有.</p>
+</footer>
+<script src="script.js"></script>
+<script>
+    // 汉堡菜单逻辑
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // 导航高亮
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            navLinks.forEach(l => l.classList.remove('active'));
+            e.target.classList.add('active');
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>

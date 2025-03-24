@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文质彬彬 - Simba</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<nav>
+<div class="logo">Simba</div>
+<button class="hamburger" aria-label="Toggle navigation">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<ul class="nav-menu">
+<li><a href="index.html">首页</a></li>
+<li><a href="portfolio.html" class="active">作品集</a></li>
+<li><a href="about.html">关于我</a></li>
+<li><a href="contact.html">联系我</a></li>
+</ul>
+</nav>
+</header>
+<main>
+    <article class="article-detail">
+        <h1>文质彬彬</h1>
+        <p>究竟什么是“文质彬彬”？当然，这是一个在现代语境下已经产生了不同于其诞生之初意思的词。而且，我们已经不再去区分“文”和“质”究竟是什么意思，而是很宽泛地把“文质彬彬”当作一个整体的词来理解。</p>
+
+        <p>可是，回到这个词的发源处，即儒家的脉络体系中，我们就可以看到这个词本来的意思。而显然，这个意思是隐藏在两个关键概念之中的：文和质。</p>
+
+        <p>什么是“文”呢？这一个字在儒家的体系里意涵是很深邃的。一个人如果能够被以“文”字评价，那么他一定是极其受到儒家脉络认可的。</p>
+
+        <p>所以，可以分析出：儒家中的“文”的概念是泛指外界的一切文化体系的。而这里面包含着太多对儒家而言至关重要的东西：比如礼乐制度，比如文明教化，比如真正的历史修养和道德思考等等。</p>
+
+        <p>也正是在这个意义上，“文治”可以和“武功”对应。虽然这两个评价都是偏正面的，但是“文治”总是略高一筹。这一点，我们从中国历代皇帝的谥号上就可以看出：只有被视作最英明的天子才能够得上一个“文”字，而略逊一筹的则可以得上一个“武”字。当然，这两个字都已经是极尽称颂的意思了。</p>
+
+        <p>为什么呢？我想是因为“武”总是一种备用的、维持基本秩序的手段。“武”的最高境界也必然是朝向“神武不杀”，即不费一兵一卒，而借助彰明正道的方式击败对方。儒家所朝向的理想境界当然是“大同”的，当然是人们脱离了这些最底线的保障，这些最基础的维持和平的工作，而每一个人都自发地受到自己仁心的驱动，组成一个不断超越的、受教化的礼乐社会。因此，“文治”作为向上、道德性的引领，一定需要被强调。</p>
+
+        <p>可是，这里的“质”又是什么呢？我们很明白“文武”的对应，可是“文质”之间的关系又是什么呢？</p>
+
+        <p>解析这个字的字源，可以发现一些有启发性的组词，比如说“本质”和“特质”。我们总觉得“质”是描述一个物体先天就具有的形态和潜能的。在这个语境里，这个字所对应的应当是人先天所具有的生命元力，那种蓬勃的动力。</p>
+
+        <p>一个人怎么能缺乏这样生命的元力呢？就是这样一种不安分和动力，不断驱动着一个人去追问自我，去哪怕想不明白也要不断地去想，去在还没有看清确定的方向的情况下就踏上寻找的旅程。</p>
+
+        <p>可是，如果这样的力量没有后天的礼乐教化，可能就产生“野人”，如同刚刚进入孔门的子路一样，本性至真至纯而充满力量，却表现出了野人一样的行径。</p>
+
+        <p>而如果一个人受到的所有后天文化熏陶仍然是理论层面的，仍然不是鲜活的和融入生命的，仍然不是在践行着的状态，那么这个人的生命可能就会走向“史”，即浮夸。或者也可能会最后转变成一种厌世主义。</p>
+
+        <p>因此，我想“文质彬彬”所描述的就是一种这两个因素互相促进的状态。因为在最本真的状态下，“文”也可以产生“质”，而“质”也可以生“文”。</p>
+    </article>
+</main>
+
+<footer>
+    <p>© 2023 Simba. 版权所有.</p>
+</footer>
+<script src="script.js"></script>
+<script>
+    // 汉堡菜单逻辑
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // 导航高亮
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            navLinks.forEach(l => l.classList.remove('active'));
+            e.target.classList.add('active');
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
