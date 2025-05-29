@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    font-family: 'Noto Serif SC', serif;
+    font-family: 'Noto Serif SC', '思源宋体', serif;
     margin: 0;
     padding: 0;
     color: #fff;
@@ -44,7 +44,7 @@ a:hover {
 }
 
 h1, h2, h3 {
-    font-family: '思源宋体', serif;
+    font-family: 'Noto Serif SC', '思源宋体', serif;
     font-weight: bold;
     color: #fff;
     margin-top: 1.5em;

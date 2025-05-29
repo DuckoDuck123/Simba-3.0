@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simba - 首页</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <style>
@@ -53,7 +54,6 @@
             background: linear-gradient(135deg, #fff 0%, #aaa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: textGlow 3s ease infinite alternate;
         }
 
         .hero-content .tagline {
@@ -91,14 +91,9 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, transparent 70%);
-            backdrop-filter: blur(5px);
+            /* backdrop-filter: blur(5px); */
             z-index: -1;
             border-radius: 20px;
-        }
-
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.4); }
         }
 
         @keyframes fadeInUp {
@@ -165,7 +160,7 @@
         canvas.height = window.innerHeight;
 
         const particlesArray = [];
-        const numberOfParticles = 120;
+        const numberOfParticles = 80;
 
         class Particle {
             constructor() {
@@ -317,7 +312,7 @@
 
             let particleCount = numberOfParticles;
             if (window.innerWidth <= 768) {
-                particleCount = Math.floor(numberOfParticles * 0.6);
+                particleCount = Math.floor(numberOfParticles * 0.5);
             }
 
             for (let i = 0; i < particleCount; i++) {
