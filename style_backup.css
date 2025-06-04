@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    font-family: 'Poppins', 'Noto Serif SC', serif;
+    font-family: 'Noto Serif SC', serif;
     margin: 0;
     padding: 0;
     color: #fff;
@@ -44,7 +44,7 @@ a:hover {
 }
 
 h1, h2, h3 {
-    font-family: 'Poppins', '思源宋体', serif;
+    font-family: '思源宋体', serif;
     font-weight: bold;
     color: #fff;
     margin-top: 1.5em;
@@ -538,7 +538,7 @@ section h2, section h1 {
     border-radius: 8px;
     font-size: 1em;
     font-weight: 500;
-    font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -1038,25 +1038,3 @@ footer {
         background-position: 200% 0;
     }
 }
-/* 返回顶部按钮 */
-#back-to-top {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #fff 0%, #ccc 100%);
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 200;
-}
-#back-to-top:hover {
-    transform: scale(1.1);
-}
-
