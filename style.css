@@ -40,7 +40,7 @@ a {
 }
 
 a:hover {
-    color: #0078ff;
+    color: #ff5f6d;
 }
 
 h1, h2, h3 {
@@ -57,7 +57,7 @@ h2 { font-size: 2.2em; }
 h3 { font-size: 1.8em; }
 
 h1, h2 {
-    background: linear-gradient(90deg, #0078ff, #00c6ff);
+    background: linear-gradient(90deg, #ff5f6d, #ffc371);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
@@ -73,7 +73,7 @@ p {
 .button {
     display: inline-block;
     padding: 12px 25px;
-    background: linear-gradient(135deg, #0078ff 0%, #00c6ff 100%);
+    background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
     color: #fff;
     border-radius: 8px;
     font-size: 1em;
@@ -115,7 +115,7 @@ nav {
 .logo {
     font-size: 1.8em;
     font-weight: bold;
-    color: #0078ff;
+    color: #ff5f6d;
 }
 
 .nav-menu {
@@ -143,7 +143,7 @@ nav {
 
 .nav-menu li a:hover,
 .nav-menu li a.active {
-    color: #0078ff;
+    color: #ff5f6d;
     transform: scale(1.05);
 }
 
@@ -154,7 +154,7 @@ nav {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #0078ff, transparent);
+    background: linear-gradient(90deg, transparent, #ff5f6d, transparent);
     transform: translateX(-100%);
     transition: transform 0.4s ease;
 }
@@ -289,7 +289,7 @@ section h2, section h1 {
 }
 
 .portfolio-item:hover h3 {
-    color: #0078ff;
+    color: #ff5f6d;
 }
 
 .portfolio-item p {
