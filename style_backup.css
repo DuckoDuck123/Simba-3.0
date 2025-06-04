@@ -1,9 +1,4 @@
 /* style.css - 完整样式 */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
-
-:root {
-    --accent: #e3b74a;
-}
 
 /* 全局样式 */
 html {
@@ -12,11 +7,11 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Serif SC', serif;
     margin: 0;
     padding: 0;
-    color: #eee;
-    background-color: #111;
+    color: #fff;
+    background-color: #000;
     line-height: 1.7;
     display: flex;
     flex-direction: column;
@@ -33,14 +28,14 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -100;
-    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    background: linear-gradient(135deg, #0f0f0f 0%, #000 100%);
     opacity: 0.7;
     pointer-events: none;
 }
 
 a {
     text-decoration: none;
-    color: var(--accent);
+    color: #bbb;
     transition: color 0.3s ease;
 }
 
@@ -49,7 +44,7 @@ a:hover {
 }
 
 h1, h2, h3 {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: '思源宋体', serif;
     font-weight: bold;
     color: #fff;
     margin-top: 1.5em;
@@ -62,7 +57,19 @@ h2 { font-size: 2.2em; }
 h3 { font-size: 1.8em; }
 
 h1, h2 {
-    color: var(--accent);
+    background: linear-gradient(
+        90deg,
+        #333 0%,
+        #fff 25%,
+        #333 50%,
+        #fff 75%,
+        #333 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 10s linear infinite;
 }
 
 p {
@@ -73,7 +80,7 @@ p {
 .button {
     display: inline-block;
     padding: 12px 25px;
-    background-color: var(--accent);
+    background-color: #fff;
     color: #000;
     border-radius: 8px;
     font-size: 1em;
@@ -86,18 +93,17 @@ p {
 }
 
 .button:hover {
-    background-color: #ffd866;
+    background-color: #ddd;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Header 增强效果 */
 header {
-    background: rgba(0, 0, 0, 0.85);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
     backdrop-filter: blur(10px);
     padding: 20px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    border-bottom: 2px solid var(--accent);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -117,7 +123,7 @@ nav {
 .logo {
     font-size: 1.8em;
     font-weight: bold;
-    color: var(--accent);
+    color: #fff;
 }
 
 .nav-menu {
@@ -134,7 +140,7 @@ nav {
 }
 
 .nav-menu li a {
-    color: #eee;
+    color: #bbb;
     padding: 12px 18px;
     border-radius: 8px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -146,8 +152,8 @@ nav {
 
 .nav-menu li a:hover,
 .nav-menu li a.active {
-    color: var(--accent);
-    background: rgba(255,255,255,0.05);
+    color: #fff;
+    background: linear-gradient(135deg, #444 0%, #222 100%);
     transform: scale(1.05);
 }
 
@@ -158,7 +164,7 @@ nav {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    background: linear-gradient(90deg, transparent, #fff, transparent);
     transform: translateX(-100%);
     transition: transform 0.4s ease;
 }
@@ -1030,28 +1036,5 @@ footer {
     }
     100% {
         background-position: 200% 0;
-
     }
-
-}
-#back-to-top {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 200;
-}
-#back-to-top:hover {
-    background: #ffd866;
-    transform: scale(1.1);
 }
