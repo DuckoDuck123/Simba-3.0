@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simba - 首页</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <style>
@@ -26,7 +25,7 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #0f0f0f 0%, #000 100%);
         }
 
         .hero-particles {
@@ -129,7 +128,7 @@
     <main>
         <section class="hero" id="hero-section">
             <div class="hero-background"></div>
-            <div class="hero-particles" id="particles"></div>
+            <canvas class="hero-particles" id="particles"></canvas>
             <div class="hero-content">
                 <div class="hero-mask"></div>
                 <h1>Simba</h1>
@@ -158,29 +157,182 @@
     <footer>
         <p>© 2023 Simba. 版权所有.</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-    <script>
-        tsParticles.load("particles", {
-            fullScreen: { enable: false },
-            background: { color: { value: "transparent" } },
-            particles: {
-                number: { value: 120, density: { enable: true, area: 800 } },
-                color: { value: "#ffffff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5 },
-                size: { value: { min: 1, max: 4 } },
-                links: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: { min: 1, max: 4 }, direction: "none", outModes: { default: "bounce" } }
-            },
-            interactivity: {
-                events: { onHover: { enable: true, mode: "grab" }, onClick: { enable: true, mode: "repulse" } },
-                modes: { grab: { distance: 200, links: { opacity: 0.5 } }, repulse: { distance: 200, duration: 0.4 } }
-            },
-            detectRetina: true
-        });
-    </script>
-    <script>
 
+    <script>
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particlesArray = [];
+        const numberOfParticles = 120;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 20;
+                this.size = Math.random() * 5 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = -Math.random() * 3 - 2;
+                this.opacity = 0.8;
+                this.trail = [];
+                this.trailLength = Math.floor(Math.random() * 5) + 3;
+            }
+
+            update() {
+                this.trail.unshift({x: this.x, y: this.y, size: this.size});
+                if (this.trail.length > this.trailLength) this.trail.pop();
+
+                const maxSpeed = 5;
+                this.speedX = Math.max(Math.min(this.speedX, maxSpeed), -maxSpeed);
+                this.speedY = Math.max(Math.min(this.speedY, maxSpeed), -maxSpeed);
+
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                this.aspectRatio = 1 + Math.sqrt(this.speedX * this.speedX + this.speedY * this.speedY) / 3;
+
+                if (this.size > 0.2) this.size -= 0.01;
+
+                if (this.y < -this.size) {
+                    this.y = canvas.height + this.size;
+                    this.x = Math.random() * canvas.width;
+                    this.speedX = Math.random() * 2 - 1;
+                }
+                if (this.x < -this.size) this.x = canvas.width + this.size;
+                if (this.x > canvas.width + this.size) this.x = -this.size;
+            }
+
+            draw() {
+                for (let i = 0; i < this.trail.length; i++) {
+                    const point = this.trail[i];
+                    const fadeOpacity = this.opacity * (1 - i / this.trail.length);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${fadeOpacity})`;
+                    ctx.beginPath();
+                    const angle = Math.atan2(this.speedY, this.speedX);
+                    ctx.ellipse(
+                        point.x,
+                        point.y,
+                        point.size,
+                        point.size * this.aspectRatio,
+                        angle,
+                        0,
+                        Math.PI * 2
+                    );
+                    ctx.fill();
+                }
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                if (particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1);
+                    i--;
+                    particlesArray.push(new Particle());
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        canvas.addEventListener('click', (e) => {
+            const clickX = e.clientX;
+            const clickY = e.clientY;
+
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple-effect');
+            ripple.style.left = `${clickX}px`;
+            ripple.style.top = `${clickY}px`;
+            document.body.appendChild(ripple);
+
+            setTimeout(() => {
+                document.body.removeChild(ripple);
+            }, 1000);
+
+            particlesArray.forEach(particle => {
+                const dx = clickX - particle.x;
+                const dy = clickY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 300) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = Math.min(8, (300 - distance) / 100);
+
+                    particle.speedX += forceDirectionX * force;
+                    particle.speedY += forceDirectionY * force;
+
+                    particle.size *= 1.3;
+                    particle.opacity = 1;
+                }
+            });
+        });
+
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const touchX = touch.clientX;
+            const touchY = touch.clientY;
+
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple-effect');
+            ripple.style.left = `${touchX}px`;
+            ripple.style.top = `${touchY}px`;
+            document.body.appendChild(ripple);
+
+            setTimeout(() => {
+                document.body.removeChild(ripple);
+            }, 1000);
+
+            particlesArray.forEach(particle => {
+                const dx = touchX - particle.x;
+                const dy = touchY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 200) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = Math.min(6, (200 - distance) / 80);
+
+                    particle.speedX += forceDirectionX * force;
+                    particle.speedY += forceDirectionY * force;
+                    particle.size *= 1.2;
+                    particle.opacity = 1;
+                }
+            });
+        }, { passive: false });
+
+        function adjustParticlesForDevice() {
+            particlesArray.length = 0;
+
+            let particleCount = numberOfParticles;
+            if (window.innerWidth <= 768) {
+                particleCount = Math.floor(numberOfParticles * 0.6);
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            adjustParticlesForDevice();
+        });
+
+        adjustParticlesForDevice();
+        animateParticles();
 
         const articles = [
             { title: "天道与人性", link: "article-1.html", desc: "一个人所能接收到的主要信息无非来自两个来源：一是外界的世界与环境，二是与自我的对话和思考。这两种信息来源在我们不断互动的过程中，逐渐塑造了我们对外界事物和内在自我的认知。" },
@@ -226,6 +378,5 @@
         }
     </script>
     <script src="interactions.js"></script>
-    <button id="back-to-top" aria-label="返回顶部">↑</button>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'922e3bed2e706b33',t:'MTc0MjQwMDU2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92369957dde04065',t:'MTc0MjQ4ODI3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
