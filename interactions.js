@@ -145,3 +145,13 @@ navLinks.forEach(link => {
         }
     });
 });
+const backToTop = document.getElementById("back-to-top");
+if (backToTop) {
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    window.addEventListener("scroll", throttle(() => {
+        backToTop.style.opacity = window.pageYOffset > 300 ? "1" : "0";
+    }, 100));
+}
+
