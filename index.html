@@ -26,7 +26,6 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         }
 
         .hero-particles {
@@ -40,7 +39,7 @@
 
         .hero-content {
             text-align: center;
-            color: #fff;
+            color: #111;
             position: relative;
             z-index: 1;
             padding: 20px;
@@ -51,7 +50,7 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 5px;
-            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textGlow 3s ease infinite alternate;
@@ -59,7 +58,7 @@
 
         .hero-content .tagline {
             font-size: 1.5em;
-            color: #ddd;
+            color: #555;
             margin: 20px 0 40px;
             opacity: 0;
             animation: fadeInUp 1s ease 0.5s forwards;
@@ -68,10 +67,10 @@
         .hero-content .button {
             padding: 15px 20px;
             font-size: 1.2em;
-            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
-            color: #000;
+            background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+            color: #fff;
             border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             opacity: 0;
             animation: fadeInUp 1s ease 1s forwards;
@@ -80,9 +79,8 @@
         }
 
         .hero-content .button:hover {
-            background: linear-gradient(135deg, #ccc 0%, #999 100%);
             transform: scale(1.1) translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .hero-mask {
@@ -91,7 +89,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
             backdrop-filter: blur(5px);
             z-index: -1;
             border-radius: 20px;
