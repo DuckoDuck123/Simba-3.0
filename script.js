@@ -23,13 +23,11 @@ function closeModal() {
 }
 
 if (closeWechat) {
-    closeWechat.addEventListener('click', closeModal);
+    closeWechat.onclick = closeModal;
 }
 
-if (modal) {
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
 }
